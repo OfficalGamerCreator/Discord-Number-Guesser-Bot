@@ -4,6 +4,8 @@ const bot = new Discord.Client();
 var guesses;
 var num = 0;
 
+var info = require('./info.json');
+
 
 bot.on('message', (message) => {
     var mes = message.content.split(" ");
@@ -21,6 +23,7 @@ bot.on('message', (message) => {
         }
         else if(mes[1] == num)
         {
+            guesses++;
             message.reply('You got it! Only took ' + guesses + ' tries.');
             message.reply('Picking a random number between 1 and 100');
             num = Math.floor((Math.random() * 100) + 1);
@@ -28,12 +31,12 @@ bot.on('message', (message) => {
         }
         else if(mes[1] < num)
         {
-            message.reply('Too low');
+            message.reply(mes[1] + ' is too low');
             guesses++;
         }
         else if(mes[1] > num)
         {
-            message.reply('Too high');
+            message.reply(mes[1] + ' is too high');
             guesses++;
         }
     }
@@ -43,4 +46,4 @@ bot.on('message', (message) => {
 
 
 
-bot.login('MzkyNTMwNzE1MTk3MTc3ODU2.DRokTA.nE1FgSdgv6k07wxz435IEibvQQc');
+bot.login(info.id);
