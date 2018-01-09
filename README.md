@@ -1,4 +1,4 @@
-# Discord-RNG-Guesser-Bot
+# Discord-Number-Guesser-Bot
 
 Allows users to play a simple guessing game between the numbers 1 and 100.
 
